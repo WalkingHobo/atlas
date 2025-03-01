@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Corporation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Global reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: #121212;
+            color: #fff;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        /* Navbar styling */
+        nav {
+            background: #1e2a47;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 15px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .logo {
+            font-size: 26px;
+            color: #00bcd4;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 188, 212, 0.8);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            padding: 8px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #00bcd4, #ff00ff);
+            border-radius: 25px;
+            z-index: -1;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        nav ul li a:hover::before {
+            opacity: 1;
+            transform: scaleX(1.1) scaleY(1.1);
+        }
+
+        nav ul li a:hover {
+            color: #1e1e1e;
+        }
+
+        /* Main content styling */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 100px 20px 50px;
+        }
+
+        .section {
+            background: linear-gradient(135deg, #3a3a3a, #000);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 30px 0;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease-in-out;
+            position: relative;
+        }
+
+        .section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 188, 212, 0.5), rgba(255, 0, 255, 0.5));
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .section:hover::after {
+            opacity: 1;
+        }
+
+        .section h2 {
+            font-size: 40px;
+            color: #00bcd4;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .section p {
+            font-size: 20px;
+            color: #ddd;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide all sections initially */
+        .page {
+            display: none;
+        }
+
+        /* Display section when active */
+        .active {
+            display: block;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .section h2 {
+                font-size: 30px;
+            }
+
+            .section p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Atlas</div>
+        <ul>
+            <li><a href="javascript:void(0);" onclick="showPage('information')">Information</a></li>
+            <li><a href="javascript:void(0);" onclick="showPage('social-links')">Social Links</a></li>
+            <li><a href="javascript:void(0);" onclick="showPage('updates')">Updates</a></li>
+            <li><a href="javascript:void(0);" onclick="showPage('videos')">Videos</a></li>
+            <li><a href="javascript:void(0);" onclick="showPage('roster')">Roster</a></li>
+            <li><a href="javascript:void(0);" onclick="showPage('operations')">Operations</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Each section is a separate "page" -->
+        <div id="information" class="section page active">
+            <h2>Information</h2>
+            <br>
+            <h3>Welcome to Atlas!</h3>
+            <br>
+
+            <p>We are a group that is known for it's fast and powerful operations taking down any group that dares mess with us.</p>
+            <br>
+            <p>Our motive is to cause chaos we target anyone and everyone.</p>
+        </div>
+
+        <div id="social-links" class="section page">
+            <h2>Social Links</h2>
+            <br>
+            <p>Discord: https://discord.gg/z76QGUmvhh</p>
+            <br>
+            <p>Twitter: </p>
+            <br>
+            <p>Youtube: </p>
+            <br>
+            <p>Bluesky: </p>
+        </div>
+
+        <div id="updates" class="section page">
+            <h2>Updates</h2>
+            <p>Get the latest news, events, and innovations from Atlas. Follow our journey as we lead the charge into a new era of raiding.</p>
+        </div>
+
+        <div id="videos" class="section page">
+            <h2>Videos</h2>
+            <p>There are currently no videos but they will be posted when they come out.</p>
+        </div>
+
+        <div id="roster" class="section page">
+            <h2>Roster</h2>
+        
+            <p>- ADMINISTRATION TEAM -</p>
+            <p>[ X : 1 ] Storm</p>
+            <p>[ X : 2 ] Kyros</p>
+        
+            <br>
+        
+            <p>- AGENTS -</p>
+            <p>[ A : 1 ] N/A</p>
+            <p>[ A : 2 ] N/A</p>
+        
+            <br>
+        
+            <p>- PROBATIONARY AGENTS -</p>
+            <p>[ P : 1 ] N/A</p>
+            <p>[ P : 2 ] N/A</p>
+        </div>
+        
+        
+
+        <div id="operations" class="section page">
+            <h2>Operations</h2>
+            <p>There are no operations yet but join the discord server.</p>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            let pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show the selected page
+            let selectedPage = document.getElementById(pageId);
+            selectedPage.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
